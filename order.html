@@ -1,0 +1,197 @@
+
+<!DOCTYPE html>
+<!-- Padma Gnanapriya  -->
+<!-- SE/2017/014 -->
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Charm" rel="stylesheet">
+    <title>Order-Bruno Pizzeria</title>
+    <style>
+        #paymentMethod{
+            position: relative;
+            border-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="navbar">
+        <a href="index.html" id="logo">Bruno's Pizzeria</a>
+        <div id="navbar-right">
+          <a href="order.html" style="text-decoration: underline;">Order Now</a>
+          <a href="#">Register</a>
+          <a href="#">Features</a>
+        </div>
+      </div>
+      <a href=""><div class="uparrow">↑</div></a>
+      
+
+      <div class="orderImage">
+        <div class="orderNow">Order Now</div>
+      </div>
+
+    <div>
+    <br/>
+   
+    <div class="rows">
+        <form class="forms">
+            <div class="column" style="margin-left:200px;">
+                <section>
+                    <h3>Pick Your Delivery?</h3>
+                    <label>PickUp</label>
+                    <input onclick="hideDeliveryAddress()" type="radio" id="PickUp" name="order" value="PickUp" style="margin-left:300px"/><br/>
+                    <label>Delivery</label>
+                    <input onclick="showDeliveryAddress()" type="radio" id="Delivery" name="order" value="Delivery" style="margin-left:289px"/>
+                    <h3> Your Pizza Order</h3>
+                    <textarea placeholder="1 Large Supreme" name="pizza" rows="2" cols="50" id="pizzaOrder"></textarea>
+                </section>
+                <section id="deliveryAddress" style="opacity: 0;">
+                    <h4>Delivery Address</h4>
+                    <label for="dAddress">Address</label><br/>
+                    <input type="text" id="txtAddress" name="dAddress" value="" style="width: 400px;"><br>
+                    <label for="dSuburb">Suburb</label><br>
+                    <input type="text" id="txtSuburb" name="dSuburb" value="" style="width: 400px;"><br>
+                    <label for="dPcode">Postalcode</label><br>
+                    <input type="number" id="txtPcode" name="dPcode" value="" style="width: 400px;"><br><br>
+                </section>
+                <section id="paymentMethod">
+                    <h3>Pay online or on pickup?</h3>
+                    <label>PickUp</label>
+                    <input onclick="hidePayInfo()" type="radio" id="ppay" name="payment" value="ppay" style="margin-left:300px"/><br/>
+                    <label>Online</label>
+                    <input onclick="showPayInfo()" type="radio" id="opay" name="payment" value="opay" style="margin-left:302px"/><br/>
+                </section>
+                <input onclick="check()" type="submit" value="Submit" style="margin-top: 20px; background: deepskyblue; color:#ffffff; border-color: deepskyblue; padding: 3px;">
+            </div>
+            </form>
+            <form class="forms">
+            <div class="column" style="margin-left:100px; text-align:left;">
+                <section id="customerDetails">
+                    <h4>Customer Details</h4>
+                    <label for="name">Name</label><br/>
+                    <input type="text" id="c_name" name="name" value="" style="width: 400px;" placeholder="John Smith"><br/>
+                    <label for="email">Email</label><br/>
+                    <input type="text" id="c_email" name="email" value="" style="width: 400px;" placeholder="example@example.com"><br/>
+                    <label for="tel">Contact Number</label><br/>
+                    <input type="text" id="c_phone" name="tel" value=""  style="width: 400px;" placeholder="0412345678"><br/><br/>
+                </section>
+                <section id="billingAddress">
+                    <h4>Billing Address</h4>
+                    <label>Same as delivery address?</label><br/><br/>
+                    <label>Yes</label>
+                    <input onclick="copy()" type="radio" id="5" name="ad" value="yes" style="margin-left:300px"/><br/>
+                    <label>No</label>
+                    <input onclick="del()" type="radio" id="6" name="ad" value="no" style="margin-left:305px"/><br/><br/>
+                    <label for="dAddress">Address</label><br/>
+                    <input type="text" id="b_address" name="dAddress" value="" style="width: 400px;"><br>
+                    <label for="dSuburb">Suburb</label><br>
+                    <input type="text" id="b_suburb" name="dSuburb" value="" style="width: 400px;"><br>
+                    <label for="dPcode">Postalcode</label><br>
+                    <input type="text" id="b_pcode" name="dPcode" value="" style="width: 400px;"><br><br>
+                </section>
+                <section id="payInfo" style="display:none;">
+                    <h4>Payment Information</h4>
+                    <label for="pname">Full Name</label><br/>
+                    <input type="text" id="p_name" name="fname" value="" style="width: 400px;" placeholder="John Smith"><br/>
+                    <label for="cCard">Credit Card</label><br/>
+                    <input type="number" id="p_card" name="cCard" value="" style="width: 400px;" placeholder="1234 5678 1234 5678"><br/>
+                    <label for="date">Expiry</label><br/>
+                    <select name="month" id="p_months" style="width: 400px;">
+                        <option value="jan">January</option>
+                        <option value="feb">February</option>
+                        <option value="mar">March</option>
+                        <option value="apr">April</option>
+                        <option value="may">May</option>
+                        <option value="jun">June</option>
+                        <option value="jul">July</option>
+                        <option value="aug">August</option>
+                        <option value="sep">September</option>
+                        <option value="oct">October</option>
+                        <option value="nov">November</option>
+                        <option value="dec">December</option>
+                    </select><br/>
+                    <select name="year" id="p_years" style="width: 400px;">
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                    </select><br/>
+                    <label for="ccv">CVV</label><br/>
+                    <input type="text" id="p_cvv" name="ccv" value="" style="width: 400px;" placeholder="123"><br/>
+                </section>
+            </div>
+            <br/>
+        </form>
+    </div>
+</div>
+<footer>
+    &copy 2020 Bruno's Pizzeria  
+   <span>Created by ABC Software Pvt Ltd</span> 
+</footer>
+
+<script>
+    window.onscroll = function() {
+      if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+          document.getElementById("navbar").style.padding = "30px 120px";
+          document.getElementById("navbar").style.background = "#000000";
+      } else {
+          document.getElementById("navbar").style.padding = "50px 120px";
+          document.getElementById("navbar").style.background = "transparent";
+      }
+    }
+
+    showPayInfo=()=> document.getElementById("payInfo").style.display = "block";
+    hidePayInfo=()=> document.getElementById("payInfo").style.display = "none";
+    showDeliveryAddress=()=> document.getElementById("deliveryAddress").style.opacity="1";
+    hideDeliveryAddress=()=> document.getElementById("deliveryAddress").style.opacity="0";
+
+    function copy() {
+    document.getElementById("b_address").value=document.getElementById("txtAddress").value;
+    document.getElementById("b_suburb").value=document.getElementById("txtSuburb").value;
+    document.getElementById("b_pcode").value=document.getElementById("txtPcode").value;
+    }
+
+    function del() {
+    document.getElementById("b_address").value="";
+    document.getElementById("b_suburb").value="";
+    document.getElementById("b_pcode").value="";
+    }
+
+    function check(){
+        var alertText="";
+        if (document.getElementById("deliveryAddress").style.opacity=="1"){
+            if(document.getElementById("txtAddress").value.length===0) alertText+="\nDelevery Address connot be empty";
+            if(document.getElementById("txtSuburb").value.length===0) alertText+="\nDelevery suburb connot be empty";
+            if(document.getElementById("txtPcode").value.length!=4) alertText+="\nDelevery Post code must be 4 digits long";        
+        }
+        if(document.getElementById("payInfo").style.display!= "none"){
+            if(document.getElementById("p_name").value.length===0) alertText+="\nCardholder Name connot be empty";
+            if(document.getElementById("p_card").value.length===0) alertText+="\nCard Number connot be empty";
+            if(document.getElementById("p_cvv").value.length===0) alertText+="\nCard CVV number connot be empty";   
+        }
+        if(document.getElementById("b_address").value.length===0) alertText+="\nBilling Address connot be empty";
+        if(document.getElementById("b_suburb").value.length===0) alertText+="\nBilling suburb connot be empty";
+        if(document.getElementById("b_pcode").value.length!=4) alertText+="\nBilling Post code must be 4 digits long";  
+        if(document.getElementById("pizzaOrder").value.length===0) alertText+="\nPizza order connot be empty";
+        if(document.getElementById("c_name").value.length===0) alertText+="\nCustomer Name connot be empty";
+        if(document.getElementById("c_phone").value.length===0) alertText+="\nCustomer phone number connot be empty";
+        if(document.getElementById("c_email").value.length===0) alertText+="\nCustomer email connot be empty";  
+        if(alertText.length===0)alertText="Order is successfull"
+        alert(alertText);
+    }
+
+</script>
+<script src="main.js"></script>
+</body>
+</html>
+
+
+<!-- Padma Gnanapriya  -->
+<!-- SE/2017/014 -->
